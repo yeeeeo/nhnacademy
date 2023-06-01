@@ -1,0 +1,26 @@
+### 가족 관계 등록
+POST /residents/6/relationship
+Host: localhost:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+  "familySerialNumber": 8,
+  "relationShip": "father"
+}
+
+### 가족 관계 수정
+PUT /residents/6/relationship/8
+Host: localhost:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+  "relationShip": "mother"
+}
+
+### 가족 관계 삭제
+DELETE /residents/6/relationship/8
+Host: localhost:8080
+Content-Type: application/json
+Accept: application/json

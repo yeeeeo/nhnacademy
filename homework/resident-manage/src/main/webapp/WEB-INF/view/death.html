@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Death</title>
+    <link rel="stylesheet" href="/resources/style.css"/>
+</head>
+<body>
+<table>
+    <tr>
+        <td colspan="6">
+            <p>사망신고서</p>
+            <p th:text="'(신고일 : ' + ${death.birthDeathReportDate} + ')'"></p>
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="4">사망자</td>
+        <td colspan="2">성명</td>
+        <td th:text="${death.resident.name}"></td>
+        <td>주민등록번호</td>
+        <td th:text="${death.resident.residentRegistrationNumber}">---</td>
+    </tr>
+    <tr>
+        <td colspan="2">사망일시</td>
+        <td  th:text="${death.resident.deathDate} + '(사망지 시각 : 24시각제로 기제)'" colspan="3"></td>
+    </tr>
+    <tr>
+        <td rowspan="2">사망장소</td>
+        <td>구분</td>
+        <td colspan="3" th:text="${death.resident.deathPlaceCode}">---</td>
+    </tr>
+    <tr>
+        <td>주소</td>
+        <td colspan="3" th:text="${death.resident.deathPlaceAddress}">---</td>
+    </tr>
+    <tr>
+        <td rowspan="3">신고인</td>
+        <td colspan="2">성명</td>
+        <td th:text="${death.reportResident.name}">---</td>
+        <td>주민등록번호</td>
+        <td th:text="${death.reportResident.residentRegistrationNumber}">---</td>
+    </tr>
+    <tr>
+        <td colspan="2">자격</td>
+        <td colspan="3" th:text="${death.birthReportQualificationsCode}">---</td>
+    </tr>
+    <tr>
+        <td colspan="2">이메일</td>
+        <td th:text="${death.emailAddress}">---</td>
+        <td>전화번호</td>
+        <td th:text="${death.phoneNumber}">---</td>
+    </tr>
+</table>
+</body>
+</html>

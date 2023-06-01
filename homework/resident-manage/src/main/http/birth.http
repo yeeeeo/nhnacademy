@@ -1,0 +1,39 @@
+### 출생신고서 등록
+POST /residents/8/birth
+Host: localhost:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+  "birthReportDate": "20230519",
+  "birthName": "김출생",
+  "birthGender": "남",
+  "birthDate": "20230518072200",
+  "birthPlace": "병원",
+  "registrationBaseAddress": "경기도 수원시 팔달구 효원로 1번길",
+  "fatherName": "김수정",
+  "fatherRegistrationNumber": "130914-1111111",
+  "motherName": "이선미",
+  "motherRegistrationNumber": "851205-1234566",
+  "reportRelationShip": "부",
+  "reportEmailAddress": "test@test.com",
+  "reportPhoneNumber": "010-1111-1111"
+}
+
+### 출생신고서 수정
+PUT /residents/8/birth/9
+Host: localhost:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+  "birthReportDate": "20230520",
+  "birthGender": "여",
+  "reportEmailAddress": "modify@test.com"
+}
+
+### 출생신고서 삭제
+DELETE /residents/8/birth/9
+Host: localhost:8080
+Content-Type: application/json
+Accept: application/json

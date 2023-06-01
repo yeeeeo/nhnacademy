@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ResidentRegistration</title>
+  <link rel="stylesheet" href="/resources/style.css"/>
+</head>
+<body>
+<div th:if="${certificateIssue == null}">
+  <script>
+    alert("주민등록등본이 존재하지 않습니다!");
+    window.history.back();
+  </script>
+</div>
+<table>
+  <tr>
+    <td colspan="6">
+      <p th:text="주민등록등본"></p>
+      <p th:text="'(발급일: ' + ${certificateIssue.certificateIssueDate} + ', 증명서확인번호: ' + ${certificateIssue.certificateConfirmationNumber} +  ')'"></p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">세대주 성명</td>
+    <td th:text="${household.householdResident.name}"></td>
+    <td>
+      <p>세대구성</p>
+      <p>사유 및 일자</p>
+    </td>
+    <td colspan="2">
+      <p th:text="${household.householdCompositionReasonCode}"></p>
+      <p th:text="${household.householdCompositionDate}"></p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="4">주소</td>
+    <td colspan="2">신고일</td>
+  </tr>
+  <tr th:each="householdMovementAddress, i : ${householdMovementAddressList}">
+    <td th:if="${householdMovementAddress.lastAddressYn} == 'Y'"
+        th:text="현주소"></td>
+    <td th:if="${householdMovementAddress.lastAddressYn} == 'N'"
+        th:text="前주소"></td>
+    <td colspan="3" th:text="${householdMovementAddress.houseMovementAddress}"></td>
+    <td colspan="2" th:text="${householdMovementAddress.pk.houseMovementReportDate}"></td>
+  </tr>
+  <tr>
+    <td>
+      <p>세대주</p>
+      <p>관계</p>
+    </td>
+    <td>성명</td>
+    <td colspan="2">주민등록번호</td>
+    <td>신고일</td>
+    <td>변동사유</td>
+  </tr>
+  <tr th:each="householdCompositionResident, i : ${householdCompositionResidentList}">
+    <td th:text="${householdCompositionResident.householdRelationshipCode}"></td>
+    <td th:text="${householdCompositionResident.resident.name}"></td>
+    <td colspan="2" th:text="${householdCompositionResident.resident.residentRegistrationNumber}"></td>
+    <td th:text="${householdCompositionResident.reportDate}"></td>
+    <td th:text="${householdCompositionResident.householdCompositionChangeReasonCode}"></td>
+  </tr>
+</table>
+</body>
+</html>

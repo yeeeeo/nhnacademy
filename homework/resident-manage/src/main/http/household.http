@@ -1,0 +1,31 @@
+### 세대 등록
+POST /household
+Host: localhost:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+  "householdName": "이선미",
+  "householdRegistrationNumber": "851205-1234566",
+  "householdCompositionDate": "20230510",
+  "householdCompositionReason": "세대분리",
+  "currentHouseMovementAddress": "경기도 수원시 팔달구 효원로 1번길"
+}
+
+### 세대 수정
+PUT /household/2
+Host: localhost:8080
+Content-Type: application/json
+Accept: application/json
+
+
+{
+  "householdCompositionReason": "전입",
+  "currentHouseMovementAddress": "경기도 성남시 분당구 대왕판교로 645번길"
+}
+
+### 세대 삭제
+DELETE /household/2
+Host: localhost:8080
+Content-Type: application/json
+Accept: application/json

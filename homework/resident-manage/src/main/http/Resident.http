@@ -1,0 +1,26 @@
+### 주민 등록
+POST /residents
+Host: localhost:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "김등록",
+  "registrationNumber": "130914-1234561",
+  "gender": "여",
+  "birthDate": "19130914072200",
+  "birthPlace": "자택",
+  "registrationBaseAddress": "경기도 성남시 분당구 대왕판교로645번길"
+}
+
+### 주민 수정
+PUT /residents/8
+Host: localhost:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "김수정",
+  "registrationNumber": "130914-1111111",
+  "gender": "남"
+}

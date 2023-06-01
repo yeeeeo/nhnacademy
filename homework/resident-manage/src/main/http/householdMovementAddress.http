@@ -1,0 +1,27 @@
+### 세대 전입 주소 등록
+POST /household/1/movement
+Host: localhost:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+  "houseMovementReportDate": "20230521",
+  "houseMovementAddress": "경기도 성남시 분당구 대왕판교로 645번길",
+  "lastAddressYn": "Y"
+}
+
+### 세대 전입 주소 수정
+PUT /household/1/movement/20230521
+Host: localhost:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+  "houseMovementAddress": "경기도 성남시 분당구 대왕판교로 645번길 수정"
+}
+
+### 세대 전입 주소 삭제
+DELETE /household/1/movement/20230521
+Host: localhost:8080
+Content-Type: application/json
+Accept: application/json

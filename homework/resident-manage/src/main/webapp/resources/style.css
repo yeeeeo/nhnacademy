@@ -1,0 +1,23 @@
+table {
+    width: 800px;
+    border-collapse: collapse;
+    border:1px #ccc solid;
+}
+table tr>td,th{
+    padding:5px;
+    border:1px #ccc solid;
+    text-align: center;
+}
+
+ul{
+    list-style: none;
+}
+
+ul :after{
+    clear: both;
+}
+
+ul > li {
+    float: left;
+    margin-right:10px;
+}

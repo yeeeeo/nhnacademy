@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+</head>
+<body>
+    <form method="post" action="/login-process" >
+        <span th:text="아이디" />: <input type="text" name="id" /><br />
+        <span th:text="패스워드" />: <input type="password" name="pwd" /><br />
+        <input type="submit" />
+    </form>
+</body>
+<p>관리자 id : admin</p>
+<p>관리자 pw : admin</p>
+<p>사용자 id : member</p>
+<p>사용자 pw : member</p>
+<a href="/">Go to Main</a>
+</html>

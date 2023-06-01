@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>FamilyRelationship</title>
+  <link rel="stylesheet" href="/resources/style.css"/>
+</head>
+<body>
+<div th:if="${certificateIssue == null}">
+  <script>
+    alert("가족관계증명서가 존재하지 않습니다!");
+    window.history.back();
+  </script>
+</div>
+<table>
+  <tr>
+    <td colspan="5">
+      <p th:text="가족관계증명서"></p>
+      <p th:text="'(발급일: ' + ${certificateIssue.certificateIssueDate} + ', 증명서확인번호: ' + ${certificateIssue.certificateConfirmationNumber} + ')'"></p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <p>등록기준지</p>
+      <p>(본적)</p>
+    </td>
+    <td colspan="3">
+      <p th:text="${baseResident.registrationBaseAddress}"></p>
+    </td>
+  </tr>
+  <tr>
+    <td>구분</td>
+    <td>성명</td>
+    <td>출생연월일</td>
+    <td>주민등록번호</td>
+    <td>성별</td>
+  </tr>
+  <tr>
+    <td>본인</td>
+    <td th:text="${baseResident.name}"></td>
+    <td th:text="${baseResident.birthDate}"></td>
+    <td th:text="${baseResident.residentRegistrationNumber}"></td>
+    <td th:text="${baseResident.genderCode}"></td>
+  </tr>
+  <tr th:each="resident, i : ${familyRelationshipDtoList}">
+    <td th:text="${resident.familyRelationshipCode}"></td>
+    <td th:text="${resident.familyResident.name}"></td>
+    <td th:text="${resident.familyResident.birthDate}"></td>
+    <td th:text="${resident.familyResident.residentRegistrationNumber}"></td>
+    <td th:text="${resident.familyResident.genderCode}"></td>
+  </tr>
+</table>
+</body>
+</html>

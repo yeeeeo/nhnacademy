@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"w>
+<head>
+    <meta charset="UTF-8">
+    <title>Birth</title>
+    <link rel="stylesheet" href="/resources/style.css"/>
+</head>
+<body>
+<table>
+    <tr>
+        <td colspan="6">
+            <p>출생신고서</p>
+            <p th:text="'(신고일 : ' + ${birth.birthDeathReportDate} + ')'"></p>
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="4">출생자</td>
+        <td colspan="2">성명</td>
+        <td th:text="${birth.resident.name}"></td>
+        <td>성별</td>
+        <td th:text="${birth.resident.genderCode}"></td>
+    </tr>
+    <tr>
+        <td colspan="2">출생일시</td>
+        <td colspan="3"
+            th:text="${birth.resident.birthDate} + '(한국시각 : 24시각제로 기제)'"></td>
+    </tr>
+    <tr>
+        <td colspan="2">출생장소</td>
+        <td colspan="3"
+            th:text="${birth.resident.birthPlaceCode}"></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <p>등록기준지</p>
+            <p>(본적)</p>
+        </td>
+        <td colspan="3"
+            th:text="${birth.resident.registrationBaseAddress}"></td>
+    </tr>
+    <tr th:each="family, i : ${familyList}">
+        <td th:if="${family.familyRelationshipCode == '부'}" rowspan="2" >부모</td>
+        <td th:if="${family.familyRelationshipCode == '부'}">부</td>
+        <td th:if="${family.familyRelationshipCode == '부'}">성명</td>
+        <td th:if="${family.familyRelationshipCode == '부'}"
+                th:text="${family.familyResident.name}"></td>
+        <td th:if="${family.familyRelationshipCode == '부'}">주민등록번호</td>
+        <td th:if="${family.familyRelationshipCode == '부'}"
+            th:text="${family.familyResident.residentRegistrationNumber}"></td>
+    </tr>
+    <tr th:each="family, i : ${familyList}">
+        <td th:if="${family.familyRelationshipCode == '모'}">모</td>
+        <td th:if="${family.familyRelationshipCode == '모'}">성명</td>
+        <td th:if="${family.familyRelationshipCode == '모'}"
+            th:text="${family.familyResident.name}"></td>
+        <td  th:if="${family.familyRelationshipCode == '모'}">주민등록번호</td>
+        <td th:if="${family.familyRelationshipCode == '모'}"
+        th:text="${family.familyResident.residentRegistrationNumber}"></td>
+    </tr>
+    <tr>
+        <td rowspan="3">신고인</td>
+        <td colspan="2">성명</td>
+        <td th:text="${birth.reportResident.name}"></td>
+        <td>주민등록번호</td>
+        <td th:text="${birth.reportResident.residentRegistrationNumber}"></td>
+    </tr>
+    <tr>
+        <td colspan="2">자격</td>
+        <td colspan="3"
+            th:text="${birth.birthReportQualificationsCode}"></td>
+    </tr>
+    <tr>
+        <td colspan="2">이메일</td>
+        <td th:text="${birth.emailAddress}"></td>
+        <td>전화번호</td>
+        <td th:text="${birth.phoneNumber}"></td>
+    </tr>
+</table>
+</body>
+</html>

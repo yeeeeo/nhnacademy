@@ -1,0 +1,34 @@
+### 사망신고서 등록
+POST /residents/8/death
+Host: localhost:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+  "deathReportDate": "20230521",
+  "deathName": "김출생",
+  "deathRegistrationNumber": "230518-3559774",
+  "deathDate": "20230521072200",
+  "deathPlace": "주택",
+  "deathPlaceAddress": "경기도 수원시 팔달구 효원로 1번길",
+  "reportRelationShip": "동거친족",
+  "reportPhoneNumber": "010-1111-1111"
+}
+
+### 사망신고서 수정
+PUT /residents/8/death/9
+Host: localhost:8080
+Content-Type: application/json
+Accept: application/json
+
+{
+  "deathReportDate": "20230522",
+  "deathPlace": "의료기관",
+  "deathPlaceAddress": "경기도 수원시 팔달구 효원로 1번길 수원병원"
+}
+
+### 사망신고서 삭제
+DELETE /residents/8/death/9
+Host: localhost:8080
+Content-Type: application/json
+Accept: application/json

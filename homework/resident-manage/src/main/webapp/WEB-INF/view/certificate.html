@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Certificate</title>
+  <link rel="stylesheet" href="/resources/style.css"/>
+</head>
+<body>
+<h1 th:text="${resident.name} + ' 증명서 목록'"></h1>
+<table>
+  <tr>
+    <td>가족관계증명서</td>
+    <td>
+      <a th:href="@{./certificate/familyRelationship(id=${resident.residentSerialNumber})}">발급</a>
+    </td>
+  </tr>
+  <tr>
+    <td>주민등록등본</td>
+    <td>
+      <a th:href="@{./certificate/residentRegistration(id=${resident.residentSerialNumber})}">발급</a>
+    </td>
+  </tr>
+  <tr>
+    <td>출생신고서</td>
+    <td>
+      <a th:if="${hasBirthCertificate}"
+              th:href="@{./certificate/birth(id=${resident.residentSerialNumber})}">발급</a>
+      <span th:unless="${hasBirthCertificate}">-</span>
+    </td>
+  </tr>
+  <tr>
+    <td>사망신고서</td>
+    <td>
+      <a th:if="${hasDeathCertificate}"
+         th:href="@{./certificate/death(id=${resident.residentSerialNumber})}">발급</a>
+      <span th:unless="${hasDeathCertificate}">-</span>
+    </td>
+  </tr>
+  <tr>
+    <td>증명서 발급 목록</td>
+    <td>
+      <a th:href="@{./certificate/list(id=${resident.residentSerialNumber})}">조회</a>
+    </td>
+  </tr>
+</table>
+<a href="/">돌아가기</a>
+</body>
+</html>
