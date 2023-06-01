@@ -1,14 +1,19 @@
 package com.nhnacademy.springbootstudent.account.domain;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Getter
-@RequiredArgsConstructor
-@ToString
+@Setter
+@EqualsAndHashCode
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Account {
-    private final Long id;
-    private final String number;
-    private final Integer balance;
+    @Id
+    private Long id;
+    private String number;
+    private Integer balance;
 }

@@ -1,17 +1,19 @@
 package com.nhnacademy.springbootstudent.student.domain;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Getter
-@RequiredArgsConstructor
+@Setter
 @EqualsAndHashCode
-@ToString
-public class
-Student {
-    private final Long id;
-    private final String name;
-    private final Integer score;
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+public class Student {
+    @Id
+    private Long id;
+    private String name;
+    private Integer score;
 }
