@@ -1,0 +1,24 @@
+### 학생 등록
+# curl -XPOST -H "Content-Type: application/json"
+#  -d '{"id": 1, “name”: “student1”, “score”: 100}'
+#  http://localhost:8080/students
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name":"student1",
+  "score": 100
+}
+
+### 학생 전체 조회
+# curl -X GET http://localhost:8080/students
+GET http://localhost:8080/students
+
+### 학생 조회
+# curl -X GET http://localhost:8080/students/1
+GET http://localhost:8080/students/1
+
+### 학생 삭제
+# curl -X DELETE http://localhost:8080/students/1
+DELETE http://localhost:8080/students/1
